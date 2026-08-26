@@ -1,0 +1,317 @@
+/* ============================================================
+   Remembering our own — the Saylavy partnership pages
+   ------------------------------------------------------------
+   Loaded only by remember.html and by the home-page section.
+   The page itself stays in the church's cream/navy/gold system;
+   the phone mockup wears Saylavy's own dark palette, because
+   that is what the app actually looks like in someone's hand.
+   ============================================================ */
+
+:root {
+  --say-ink:    #07061A;   /* Saylavy near-black */
+  --say-ink-2:  #12112B;
+  --say-blue:   #204BCC;
+  --say-blue-2: #4A72E8;
+  --say-dim:    #9A9CB4;
+  --say-line:   rgba(255,255,255,.10);
+}
+
+/* ============================================================
+   Section framing
+   ============================================================ */
+
+.remember-band {
+  background:
+    radial-gradient(900px 420px at 78% 12%, rgba(32,75,204,.22), transparent 62%),
+    var(--say-ink);
+  color: #EDEDF4;
+}
+.remember-band h2,
+.remember-band h3 { color: #fff; }
+.remember-band .lede { color: var(--say-dim); }
+.remember-band .eyebrow { color: var(--say-blue-2); }
+.remember-band .eyebrow::before { background: var(--say-blue-2); }
+
+.remember-band .btn--ghost { color: #fff; border-color: rgba(255,255,255,.26); }
+.remember-band .btn--ghost:hover { border-color: var(--say-blue-2); background: rgba(255,255,255,.06); }
+.remember-band .btn--blue { background: var(--say-blue); color: #fff; }
+.remember-band .btn--blue:hover { background: var(--say-blue-2); transform: translateY(-2px); }
+
+.btn--blue { background: var(--say-blue); color: #fff; box-shadow: var(--shadow-sm); }
+.btn--blue:hover { background: var(--say-blue-2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+/* ============================================================
+   The phone
+   ============================================================ */
+
+.phone-stage {
+  display: grid; place-items: center;
+  padding: var(--space-4);
+  position: relative;
+}
+.phone-stage::before {
+  content: ""; position: absolute; inset: 12% 6%;
+  background: radial-gradient(circle, rgba(74,114,232,.30), transparent 68%);
+  filter: blur(46px); pointer-events: none;
+}
+
+.phone {
+  position: relative;
+  width: min(300px, 82vw);
+  aspect-ratio: 9 / 19;
+  background: var(--say-ink);
+  border: 9px solid #24243A;
+  border-radius: 42px;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.10) inset,
+    0 34px 70px rgba(0,0,0,.48),
+    0 8px 22px rgba(0,0,0,.32);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  font-family: var(--font-body);
+}
+
+/* notch */
+.phone::before {
+  content: ""; position: absolute; z-index: 5;
+  top: 9px; left: 50%; transform: translateX(-50%);
+  width: 92px; height: 22px;
+  background: #24243A; border-radius: 0 0 14px 14px;
+}
+
+.phone-status {
+  flex: none; display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px 6px;
+  font-size: 11px; font-weight: 600; color: #fff; letter-spacing: .02em;
+}
+.phone-status .dots { display: flex; gap: 3px; align-items: center; }
+.phone-status .dots i {
+  width: 3px; border-radius: 1px; background: #fff; display: block;
+}
+.phone-status .dots i:nth-child(1) { height: 4px; }
+.phone-status .dots i:nth-child(2) { height: 6px; }
+.phone-status .dots i:nth-child(3) { height: 8px; }
+.phone-status .dots i:nth-child(4) { height: 10px; }
+.phone-battery {
+  width: 20px; height: 10px; border: 1px solid rgba(255,255,255,.6);
+  border-radius: 3px; position: relative;
+}
+.phone-battery::after {
+  content: ""; position: absolute; inset: 2px; right: 6px;
+  background: #fff; border-radius: 1px;
+}
+
+/* --- screens --- */
+.phone-screens {
+  flex: 1; position: relative; overflow: hidden;
+}
+.phone-screen {
+  position: absolute; inset: 0;
+  padding: 18px 18px 10px;
+  overflow-y: auto;
+  opacity: 0; visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 260ms var(--ease), transform 260ms var(--ease), visibility 260ms;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.phone-screen::-webkit-scrollbar { display: none; }
+.phone-screen.is-active { opacity: 1; visibility: visible; transform: none; }
+
+.ph-eyebrow {
+  font-size: 9px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--say-blue-2); margin: 0 0 8px;
+}
+.ph-title {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 21px; line-height: 1.15; color: #fff; margin: 0 0 4px;
+  letter-spacing: -.01em;
+}
+.ph-sub { font-size: 11.5px; color: var(--say-dim); margin: 0 0 14px; }
+.ph-body { font-size: 12px; line-height: 1.55; color: #C9CBDA; margin: 0 0 12px; }
+
+.ph-portrait {
+  width: 100%; aspect-ratio: 4 / 3; border-radius: 14px;
+  background: linear-gradient(150deg, #2B3B7A, #1A1935 62%);
+  display: grid; place-items: center; margin-bottom: 14px;
+  border: 1px solid var(--say-line);
+}
+.ph-initials {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 21px; color: #fff; font-weight: 500;
+}
+
+.ph-row {
+  display: flex; align-items: center; gap: 11px;
+  padding: 11px 12px; margin-bottom: 8px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--say-line);
+  border-radius: 12px;
+}
+.ph-row-icon {
+  flex: none; width: 30px; height: 30px; border-radius: 9px;
+  background: rgba(32,75,204,.30); color: #A8BEFF;
+  display: grid; place-items: center;
+}
+.ph-row-icon svg { width: 14px; height: 14px; }
+.ph-row-text { min-width: 0; }
+.ph-row-text strong { display: block; font-size: 12px; color: #fff; font-weight: 600; }
+.ph-row-text span { font-size: 10.5px; color: var(--say-dim); }
+
+/* waveform for the voice note */
+.ph-wave { display: flex; align-items: center; gap: 2px; height: 22px; flex: 1; }
+.ph-wave i {
+  display: block; width: 2px; border-radius: 1px;
+  background: var(--say-blue-2); opacity: .75;
+}
+
+.ph-card {
+  padding: 13px; border-radius: 13px; margin-bottom: 9px;
+  background: rgba(255,255,255,.05); border: 1px solid var(--say-line);
+}
+.ph-card--accent {
+  background: linear-gradient(140deg, rgba(32,75,204,.34), rgba(32,75,204,.10));
+  border-color: rgba(74,114,232,.42);
+}
+.ph-card h4 { font-size: 12px; color: #fff; margin: 0 0 4px; font-weight: 600; font-family: var(--font-body); }
+.ph-card p  { font-size: 11px; color: #C9CBDA; margin: 0; line-height: 1.5; }
+
+.ph-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 9px; border-radius: 999px;
+  font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.ph-chip--live  { background: rgba(34,197,94,.18);  color: #6EE7A0; }
+.ph-chip--soon  { background: rgba(247,186,0,.18);  color: #F7BA00; }
+.ph-chip--locked{ background: rgba(255,255,255,.10); color: var(--say-dim); }
+
+.ph-countdown {
+  font-family: var(--font-display); font-size: 27px; color: #fff;
+  font-weight: 500; line-height: 1; margin: 2px 0 3px;
+}
+
+.ph-check {
+  width: 74px; height: 74px; border-radius: 50%; margin: 4px auto 14px;
+  background: rgba(34,197,94,.14); border: 1px solid rgba(110,231,160,.34);
+  display: grid; place-items: center; color: #6EE7A0;
+}
+.ph-check svg { width: 30px; height: 30px; }
+
+.ph-btn {
+  display: block; width: 100%; text-align: center;
+  padding: 11px; border-radius: 11px; border: 0;
+  background: var(--say-blue); color: #fff;
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  cursor: default; margin-top: 4px;
+}
+
+/* --- bottom tab bar (the interactive part) --- */
+.phone-tabs {
+  flex: none; display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; padding: 8px 6px 14px;
+  border-top: 1px solid var(--say-line);
+  background: rgba(255,255,255,.03);
+}
+.phone-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 6px 2px; border: 0; background: transparent;
+  color: var(--say-dim); cursor: pointer; border-radius: 9px;
+  font-family: var(--font-body); font-size: 8.5px; font-weight: 600;
+  letter-spacing: .03em;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.phone-tab svg { width: 17px; height: 17px; }
+.phone-tab:hover { color: #C9CBDA; background: rgba(255,255,255,.05); }
+.phone-tab[aria-selected="true"] { color: #fff; background: rgba(32,75,204,.28); }
+.phone-tab:focus-visible { outline: 2px solid var(--say-blue-2); outline-offset: 1px; }
+
+.phone-caption {
+  margin-top: var(--space-4); text-align: center;
+  font-size: .82rem; color: var(--say-dim);
+}
+.remember-band .phone-caption a { color: #C9CBDA; }
+
+/* ============================================================
+   Feature list on the light part of the page
+   ============================================================ */
+
+/* 236px keeps all four on one row at full width - at 266px the fourth
+   dropped to a lonely second row. */
+.legacy-grid {
+  display: grid; gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(236px, 1fr));
+}
+.legacy-card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.legacy-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.legacy-card .card-icon {
+  background: linear-gradient(140deg, rgba(32,75,204,.18), rgba(32,75,204,.06));
+  color: var(--say-blue);
+}
+.legacy-card h3 { font-size: 1.16rem; margin-bottom: var(--space-2); }
+.legacy-card p { font-size: .95rem; color: var(--ink-muted); margin: 0; }
+
+/* ============================================================
+   Steps
+   ============================================================ */
+
+.steps { counter-reset: step; display: grid; gap: var(--space-4); }
+.step {
+  display: grid; grid-template-columns: auto 1fr; gap: var(--space-4);
+  align-items: start;
+}
+.step::before {
+  counter-increment: step; content: counter(step);
+  flex: none; width: 42px; height: 42px; border-radius: 50%;
+  background: var(--navy); color: #fff;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 1.05rem; font-weight: 600;
+}
+.step h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.step p { color: var(--ink-muted); font-size: .96rem; margin: 0; }
+
+/* ============================================================
+   Partner strip
+   ============================================================ */
+
+.partner {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+.partner-mark {
+  display: flex; align-items: center; gap: 13px;
+}
+.partner-mark .dot {
+  width: 40px; height: 40px; border-radius: 12px; flex: none;
+  background: var(--say-ink); color: #fff;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
+}
+.partner-mark strong { display: block; color: var(--navy); font-size: 1.02rem; }
+.partner-mark span { font-size: .87rem; color: var(--ink-muted); }
+
+.store-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+.store-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 9px 16px; border-radius: 10px;
+  background: var(--say-ink); color: #fff; text-decoration: none;
+  transition: transform var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.store-badge:hover { background: var(--say-ink-2); transform: translateY(-2px); }
+.store-badge svg { width: 20px; height: 20px; flex: none; }
+.store-badge span { display: block; line-height: 1.15; }
+.store-badge .small { font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; opacity: .72; }
+.store-badge .big { font-size: 13px; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-screen { transition: none; }
+}

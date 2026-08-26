@@ -59,6 +59,7 @@ anything that does not match what NGVC actually teaches.
 | `about.html` | Our story, Pastor Nnenna Ogbonna, what we believe |
 | `sermons.html` | Watch — live link, featured message, full service archive |
 | `visit.html` | Plan your visit — service times, what to expect, getting here, FAQ |
+| `remember.html` | Remembering our own — the Saylavy partnership, with a live app mockup |
 | `give.html` | Giving — why, and three ways to do it |
 | `contact.html` | Contact form, details, map, socials |
 | `404.html` | Not-found page |
@@ -84,6 +85,43 @@ else was taken from the church's own channels:
 - **Logo** — the church's YouTube avatar, with the white background made transparent
 - **Brand colours** — sampled straight out of that logo: navy `#2D3041`, gold `#F7BA00`
 - **Pastor's photo** — cropped from the "Renewal of the Heart" thumbnail
+
+---
+
+## The Saylavy partnership (`remember.html`)
+
+A pastoral page offering the congregation somewhere permanent to keep memory pages,
+time capsules and funeral wishes, through [Saylavy](https://saylavy.com). It is
+written for grieving families rather than as an advert, and the closing section
+deliberately tells anyone who has just lost someone to call the church first and
+worry about the app later.
+
+### The phone mockup
+
+`css/remember.css` + `js/phone-demo.js` draw an interactive phone with four
+screens — Memory Page, Time Capsule, Proof of Life, Funeral Plan. It is a real
+`tablist`, so the tabs work with arrow keys, Home and End, not just clicks.
+Without JavaScript the first screen simply stays on show.
+
+The phone wears Saylavy's own palette (`#07061A` / `#204BCC`) rather than the
+church's, because that is what the app actually looks like in someone's hand.
+Everything in it is **fictional and labelled "Sample"** — no real person, no real
+family, nothing submitted anywhere.
+
+### ⚠️ Two things to confirm before this page goes live
+
+1. **The partnership itself.** The page says "we have partnered with Saylavy" and
+   offers to sit with people after the service to set it up. Make sure the church
+   has actually agreed to both.
+2. **The product claims.** The four feature descriptions are paraphrased from
+   saylavy.com. I deliberately kept the Proof of Life screen vague about *who* can
+   see what — an earlier draft said "nobody can see it, including us", which asserts
+   zero-knowledge encryption that I could not verify. Check anything you tighten
+   against Saylavy's actual terms before promising it to a grieving family.
+
+Pricing is not mentioned anywhere on the page. Saylavy's own positioning is
+"one purchase, no subscription" — if the church has negotiated something different
+for members, say so explicitly rather than leaving people to guess.
 
 ---
 
