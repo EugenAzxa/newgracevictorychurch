@@ -59,7 +59,7 @@ anything that does not match what NGVC actually teaches.
 | `about.html` | Our story, Pastor Nnenna Ogbonna, what we believe |
 | `sermons.html` | Watch — live link, featured message, full service archive |
 | `visit.html` | Plan your visit — service times, what to expect, getting here, FAQ |
-| `remember.html` | Remembering our own — the Saylavy partnership, with a live app mockup |
+| `remember.html` | Remembering our own — the Saylavy partnership |
 | `give.html` | Giving — why, and three ways to do it |
 | `contact.html` | Contact form, details, map, socials |
 | `404.html` | Not-found page |
@@ -123,31 +123,15 @@ written for grieving families rather than as an advert, and the closing section
 deliberately tells anyone who has just lost someone to call the church first and
 worry about the app later.
 
-### The phone mockup
+### No phone mockup on this page
 
-Four screens — Memory Page, Time Capsule, Proof of Life, Funeral Plan. Everything
-in it is **fictional and labelled "Sample"** — no real person, no real family,
-nothing submitted anywhere.
+The only interactive app mockup on the site is the church's own, on the home page.
+This page points at Saylavy with real App Store and Google Play links instead, which
+is the honest thing to do for an app that actually exists and is not ours.
 
-It wears Saylavy's own palette (`#07061A` / `#204BCC`) rather than the church's,
-because that is what their app actually looks like in someone's hand.
-
-### One phone, two skins
-
-The phone is a shared component in **`css/app-demo.css`**, driven by `--ph-*` custom
-properties, and `js/phone-demo.js` runs any `[data-phone]` on the page. So there is
-one implementation, used twice:
-
-| Markup | Skin | Where |
-|---|---|---|
-| `.phone` | church navy + gold | home page |
-| `.phone.phone--saylavy` | Saylavy near-black + blue | `remember.html` |
-
-`css/remember.css` holds only that skin override plus this page's own sections. A
-third theme would be about a dozen lines, not a second copy of the component.
-
-Both phones are real `tablist`s, so the tabs respond to arrow keys, Home and End,
-not just clicks — and with JavaScript off the first screen simply stays on show.
+The phone component in `css/app-demo.css` is themeable through `--ph-*` properties,
+and `js/phone-demo.js` picks up any `[data-phone]` on the page — so re-skinning it
+for a second app later is about a dozen lines. Neither file is loaded here.
 
 ### ⚠️ Two things to confirm before this page goes live
 

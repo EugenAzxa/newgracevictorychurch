@@ -1,8 +1,9 @@
 /* ============================================================
    Remembering our own — the Saylavy partnership page
    ------------------------------------------------------------
-   Page sections only. The phone itself lives in app-demo.css;
-   all this file does to it is re-skin it in Saylavy's colours.
+   Page sections only. This page carries no phone mockup, so it
+   does not load css/app-demo.css — the only interactive mockup
+   on the site is the church's own app, on the home page.
    ============================================================ */
 
 :root {
@@ -10,52 +11,17 @@
   --say-ink-2:  #12112B;
   --say-blue:   #204BCC;
   --say-blue-2: #4A72E8;
-  --say-dim:    #9A9CB4;
 }
 
 /* ============================================================
-   Saylavy skin for the shared phone component
+   Saylavy accent button
    ============================================================ */
-
-.phone--saylavy {
-  --ph-bg:         #07061A;
-  --ph-frame:      #24243A;
-  --ph-surface:    rgba(255,255,255,.05);
-  --ph-line:       rgba(255,255,255,.10);
-  --ph-accent:     #204BCC;
-  --ph-accent-dim: rgba(32,75,204,.30);
-  --ph-accent-ink: #FFFFFF;
-  --ph-on-accent:  #8FA9FF;
-  --ph-text:       #FFFFFF;
-  --ph-body:       #C9CBDA;
-  --ph-dim:        #9A9CB4;
-}
-.phone-stage--saylavy { --stage-glow: rgba(74,114,232,.30); }
-
-/* ============================================================
-   Section framing
-   ============================================================ */
-
-.remember-band {
-  background:
-    radial-gradient(900px 420px at 78% 12%, rgba(32,75,204,.22), transparent 62%),
-    var(--say-ink);
-  color: #EDEDF4;
-}
-.remember-band h2,
-.remember-band h3 { color: #fff; }
-.remember-band .lede { color: var(--say-dim); }
-.remember-band .eyebrow { color: var(--say-blue-2); }
-.remember-band .eyebrow::before { background: var(--say-blue-2); }
-
-.remember-band .btn--ghost { color: #fff; border-color: rgba(255,255,255,.26); }
-.remember-band .btn--ghost:hover { border-color: var(--say-blue-2); background: rgba(255,255,255,.06); }
 
 .btn--blue { background: var(--say-blue); color: #fff; box-shadow: var(--shadow-sm); }
 .btn--blue:hover { background: var(--say-blue-2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
 /* ============================================================
-   Feature list on the light part of the page
+   What it gives you
    ============================================================ */
 
 /* 236px keeps all four on one row at full width - at 266px the fourth
@@ -79,7 +45,7 @@
 .legacy-card p { font-size: .95rem; color: var(--ink-muted); margin: 0; }
 
 /* ============================================================
-   Steps
+   Getting started
    ============================================================ */
 
 .steps { counter-reset: step; display: grid; gap: var(--space-4); }
