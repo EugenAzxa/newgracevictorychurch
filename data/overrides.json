@@ -1,0 +1,8 @@
+{
+  "_readme": "Hand-written titles for specific YouTube videos. Key = the 11-character video ID from the watch URL. Anything listed here wins over the auto-generated title. Add a speaker if you know who preached.",
+
+  "hyotY_6JX_c": { "title": "Renewal of the Heart", "speaker": "Pastor Nnenna Ogbonna" },
+  "odTLopLbXI0": { "title": "Powers Against Destiny Killers", "speaker": null },
+  "nin652AC2OY": { "title": "Sunday Service", "speaker": null },
+  "6sS2JwjLW4w": { "title": "Sunday Service", "speaker": null }
+}

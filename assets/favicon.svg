@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="New Grace Victory Church">
+  <circle cx="32" cy="32" r="32" fill="#2D3041"/>
+  <g fill="#F7BA00">
+    <!-- sunrise rays -->
+    <path d="M32 40 14 24h4l14 12z" opacity="0"/>
+    <g transform="translate(32 41)">
+      <g id="r">
+        <path d="M-1.6 0 -3.6-22h7.2L1.6 0z"/>
+      </g>
+      <use href="#r" transform="rotate(-72)"/>
+      <use href="#r" transform="rotate(-54)"/>
+      <use href="#r" transform="rotate(-36)"/>
+      <use href="#r" transform="rotate(-18)"/>
+      <use href="#r" transform="rotate(18)"/>
+      <use href="#r" transform="rotate(36)"/>
+      <use href="#r" transform="rotate(54)"/>
+      <use href="#r" transform="rotate(72)"/>
+    </g>
+  </g>
+  <!-- cross -->
+  <path d="M29.6 15h4.8v27h-4.8z" fill="#fff"/>
+  <path d="M23 22.4h18v4.6H23z" fill="#fff"/>
+  <!-- open book -->
+  <path d="M13 41h38a19 19 0 0 1-38 0z" fill="#fff"/>
+  <path d="M31 41h2v9h-2z" fill="#2D3041"/>
+</svg>
