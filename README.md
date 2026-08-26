@@ -139,10 +139,10 @@ for a second app later is about a dozen lines. Neither file is loaded here.
    offers to sit with people after the service to set it up. Make sure the church
    has actually agreed to both.
 2. **The product claims.** The four feature descriptions are paraphrased from
-   saylavy.com. I deliberately kept the Proof of Life screen vague about *who* can
-   see what — an earlier draft said "nobody can see it, including us", which asserts
-   zero-knowledge encryption that I could not verify. Check anything you tighten
-   against Saylavy's actual terms before promising it to a grieving family.
+   saylavy.com. The Proof of Life card is deliberately vague about *who* can see
+   what — an earlier draft asserted zero-knowledge encryption I could not verify.
+   Check anything you tighten against Saylavy's actual terms before promising it
+   to a grieving family.
 
 Pricing is not mentioned anywhere on the page. Saylavy's own positioning is
 "one purchase, no subscription" — if the church has negotiated something different
