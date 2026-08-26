@@ -212,9 +212,14 @@ Pass a port if 4321 is taken: `node tools/serve.mjs 5000`.
 
 ## Deploying
 
-Set up for **Vercel** as a static site — `vercel.json` handles caching and security
-headers. Import the repo at [vercel.com/new](https://vercel.com/new); no build command,
-no output directory.
+**Live at https://newgracevictorychurch.vercel.app**
+
+Deployed on Vercel as a static site; `vercel.json` handles caching and security
+headers. No build command, no output directory. Redeploy with `npx vercel --prod`.
+
+Keep `vercel.json` free of comment keys — the schema rejects any property it does
+not recognise, including a `_comment`, and the deploy fails outright rather than
+ignoring it.
 
 `cleanUrls` is deliberately **off**: every internal link, the sitemap and each
 canonical tag use the `.html` form, and turning it on would 308-redirect all of them.

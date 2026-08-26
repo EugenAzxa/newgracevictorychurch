@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "_comment": "cleanUrls stays off on purpose: every internal link, the sitemap and each canonical tag use the .html form, and turning it on would 308-redirect every one of them.",
   "cleanUrls": false,
   "trailingSlash": false,
   "headers": [
