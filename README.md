@@ -130,15 +130,20 @@ message highlighted on the Watch page.
 ## Running it locally
 
 There is no build. But `sermons.js` fetches `data/sermons.json`, and browsers block
-`fetch` over `file://` — so you do need a server, any server:
+`fetch` over `file://` — so opening `index.html` directly will not work. Run:
 
 ```bash
-npx serve .
-# or
-python -m http.server 8000
+node tools/serve.mjs
 ```
 
-Then open <http://localhost:3000>.
+Then open <http://localhost:4321>. Node built-ins only, nothing to install.
+
+Use this rather than `npx serve`, which rewrites `/about.html` to `/about` and so
+does not match how the site is actually served in production. `tools/serve.mjs`
+keeps `.html` URLs as-is, serves `404.html` for unknown paths, and sends
+`Cache-Control: no-store` so a reload always shows your latest edit.
+
+Pass a port if 4321 is taken: `node tools/serve.mjs 5000`.
 
 ---
 
@@ -193,6 +198,7 @@ back to a link to the YouTube channel.
 │   └── overrides.json      hand-written sermon titles
 ├── tools/
 │   ├── update-sermons.mjs  refreshes sermons.json from YouTube
+│   ├── serve.mjs           local preview server, zero dependencies
 │   └── og-image.html       source for assets/og-image.jpg
 ├── assets/                 logo, pastor photo, favicon, social card
 ├── vercel.json · robots.txt · sitemap.xml
