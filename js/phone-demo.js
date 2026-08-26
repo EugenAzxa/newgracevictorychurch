@@ -1,5 +1,5 @@
 /* ============================================================
-   The Saylavy app mockup — tab switching.
+   The Saylavy app mockup - tab switching.
 
    Built as a real tablist so it is keyboard operable: arrow keys
    move between tabs, Home/End jump to the ends. Without JS the
