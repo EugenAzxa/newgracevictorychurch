@@ -55,7 +55,7 @@ anything that does not match what NGVC actually teaches.
 
 | File | Page |
 |---|---|
-| `index.html` | Home — hero, welcome, three doors in, pastor, recent services, map |
+| `index.html` | Home — hero, welcome, three doors in, pastor, recent services, **app preview**, map |
 | `about.html` | Our story, Pastor Nnenna Ogbonna, what we believe |
 | `sermons.html` | Watch — live link, featured message, full service archive |
 | `visit.html` | Plan your visit — service times, what to expect, getting here, FAQ |
@@ -88,6 +88,33 @@ else was taken from the church's own channels:
 
 ---
 
+## The church app preview (home page)
+
+The home page carries an interactive mockup of the **New Grace Victory Church app** —
+four tappable screens: Today, Watch, Pray, Give. Church branding throughout: the real
+logo, the real address, the real service time, navy and gold.
+
+### ⚠️ There is no app yet
+
+The section says so, in plain words, right under the buttons: *"The app is still being
+built — there is nothing to download just yet."* There are deliberately **no App Store
+or Google Play badges**, because linking to a store page that does not exist would be a
+lie on a church's website. The call to action is "tell us what you want in it", which is
+the honest ask at this stage.
+
+If the app ships, replace that line with real store badges — the markup for a badge pair
+is already written on `remember.html`, ready to copy.
+
+Two claims I softened while building it, for the same reason:
+
+- The Watch screen said **"142 watching"**. The church's YouTube channel has 47
+  subscribers, so that number would have read as puffery to anyone who checked.
+- The Give screen said the yearly summary was **"for tax time"**, which implies
+  registered-charity receipts. The CRA number is still unknown (see `config.giving.charityNumber`),
+  so it now just says a summary of your giving.
+
+---
+
 ## The Saylavy partnership (`remember.html`)
 
 A pastoral page offering the congregation somewhere permanent to keep memory pages,
@@ -98,15 +125,29 @@ worry about the app later.
 
 ### The phone mockup
 
-`css/remember.css` + `js/phone-demo.js` draw an interactive phone with four
-screens — Memory Page, Time Capsule, Proof of Life, Funeral Plan. It is a real
-`tablist`, so the tabs work with arrow keys, Home and End, not just clicks.
-Without JavaScript the first screen simply stays on show.
+Four screens — Memory Page, Time Capsule, Proof of Life, Funeral Plan. Everything
+in it is **fictional and labelled "Sample"** — no real person, no real family,
+nothing submitted anywhere.
 
-The phone wears Saylavy's own palette (`#07061A` / `#204BCC`) rather than the
-church's, because that is what the app actually looks like in someone's hand.
-Everything in it is **fictional and labelled "Sample"** — no real person, no real
-family, nothing submitted anywhere.
+It wears Saylavy's own palette (`#07061A` / `#204BCC`) rather than the church's,
+because that is what their app actually looks like in someone's hand.
+
+### One phone, two skins
+
+The phone is a shared component in **`css/app-demo.css`**, driven by `--ph-*` custom
+properties, and `js/phone-demo.js` runs any `[data-phone]` on the page. So there is
+one implementation, used twice:
+
+| Markup | Skin | Where |
+|---|---|---|
+| `.phone` | church navy + gold | home page |
+| `.phone.phone--saylavy` | Saylavy near-black + blue | `remember.html` |
+
+`css/remember.css` holds only that skin override plus this page's own sections. A
+third theme would be about a dozen lines, not a second copy of the component.
+
+Both phones are real `tablist`s, so the tabs respond to arrow keys, Home and End,
+not just clicks — and with JavaScript off the first screen simply stays on show.
 
 ### ⚠️ Two things to confirm before this page goes live
 

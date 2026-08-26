@@ -1,0 +1,277 @@
+/* ============================================================
+   Phone mockup — a themeable component
+   ------------------------------------------------------------
+   Used twice, in two different skins:
+
+     .phone                 the New Grace Victory Church app  (home page)
+     .phone.phone--saylavy  the Saylavy app                   (remember.html)
+
+   Everything skinnable is a --ph-* custom property, so a second
+   theme is a handful of overrides rather than a second copy of
+   the whole component.
+   ============================================================ */
+
+.phone {
+  /* --- church theme (default) --- */
+  --ph-bg:         #1B1E2B;
+  --ph-frame:      #33374B;
+  --ph-surface:    rgba(255,255,255,.055);
+  --ph-line:       rgba(255,255,255,.11);
+  --ph-accent:     #F7BA00;
+  --ph-accent-dim: rgba(247,186,0,.17);
+  --ph-accent-ink: #1B1E2B;
+  --ph-on-accent:  #F7BA00;
+  --ph-text:       #FFFFFF;
+  --ph-body:       #CDD0DB;
+  --ph-dim:        #9BA0B2;
+  --ph-glow:       rgba(247,186,0,.28);
+}
+
+.phone-stage {
+  display: grid; place-items: center;
+  padding: var(--space-4);
+  position: relative;
+}
+.phone-stage::before {
+  content: ""; position: absolute; inset: 12% 6%;
+  background: radial-gradient(circle, var(--stage-glow, rgba(247,186,0,.26)), transparent 68%);
+  filter: blur(46px); pointer-events: none;
+}
+
+.phone {
+  position: relative;
+  width: min(300px, 82vw);
+  aspect-ratio: 9 / 19;
+  background: var(--ph-bg);
+  border: 9px solid var(--ph-frame);
+  border-radius: 42px;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.10) inset,
+    0 34px 70px rgba(0,0,0,.44),
+    0 8px 22px rgba(0,0,0,.30);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  font-family: var(--font-body);
+}
+
+/* notch */
+.phone::before {
+  content: ""; position: absolute; z-index: 5;
+  top: 9px; left: 50%; transform: translateX(-50%);
+  width: 92px; height: 22px;
+  background: var(--ph-frame); border-radius: 0 0 14px 14px;
+}
+
+.phone-status {
+  flex: none; display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 20px 6px;
+  font-size: 11px; font-weight: 600; color: var(--ph-text); letter-spacing: .02em;
+}
+.phone-status .dots { display: flex; gap: 3px; align-items: flex-end; }
+.phone-status .dots i { width: 3px; border-radius: 1px; background: currentColor; display: block; }
+.phone-status .dots i:nth-child(1) { height: 4px; }
+.phone-status .dots i:nth-child(2) { height: 6px; }
+.phone-status .dots i:nth-child(3) { height: 8px; }
+.phone-status .dots i:nth-child(4) { height: 10px; }
+.phone-battery {
+  width: 20px; height: 10px; border: 1px solid rgba(255,255,255,.6);
+  border-radius: 3px; position: relative;
+}
+.phone-battery::after {
+  content: ""; position: absolute; inset: 2px; right: 6px;
+  background: #fff; border-radius: 1px;
+}
+
+/* --- screens --- */
+.phone-screens { flex: 1; position: relative; overflow: hidden; }
+.phone-screen {
+  position: absolute; inset: 0;
+  padding: 18px 18px 10px;
+  overflow-y: auto;
+  opacity: 0; visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 260ms var(--ease), transform 260ms var(--ease), visibility 260ms;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.phone-screen::-webkit-scrollbar { display: none; }
+.phone-screen.is-active { opacity: 1; visibility: visible; transform: none; }
+
+.ph-eyebrow {
+  font-size: 9px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ph-on-accent); margin: 0 0 8px;
+}
+.ph-title {
+  font-family: var(--font-display); font-weight: 500;
+  font-size: 21px; line-height: 1.15; color: var(--ph-text); margin: 0 0 4px;
+  letter-spacing: -.01em;
+}
+.ph-sub { font-size: 11.5px; color: var(--ph-dim); margin: 0 0 14px; }
+.ph-body { font-size: 12px; line-height: 1.55; color: var(--ph-body); margin: 0 0 12px; }
+
+.ph-portrait {
+  width: 100%; aspect-ratio: 4 / 3; border-radius: 14px;
+  background: linear-gradient(150deg, #2B3B7A, #1A1935 62%);
+  display: grid; place-items: center; margin-bottom: 14px;
+  border: 1px solid var(--ph-line);
+}
+.ph-initials {
+  width: 62px; height: 62px; border-radius: 50%;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 21px; color: #fff; font-weight: 500;
+}
+
+.ph-row {
+  display: flex; align-items: center; gap: 11px;
+  padding: 11px 12px; margin-bottom: 8px;
+  background: var(--ph-surface);
+  border: 1px solid var(--ph-line);
+  border-radius: 12px;
+}
+.ph-row-icon {
+  flex: none; width: 30px; height: 30px; border-radius: 9px;
+  background: var(--ph-accent-dim); color: var(--ph-on-accent);
+  display: grid; place-items: center;
+}
+.ph-row-icon svg { width: 14px; height: 14px; }
+.ph-row-text { min-width: 0; flex: 1; }
+.ph-row-text strong { display: block; font-size: 12px; color: var(--ph-text); font-weight: 600; }
+.ph-row-text span { font-size: 10.5px; color: var(--ph-dim); }
+.ph-row-end { flex: none; font-size: 10.5px; color: var(--ph-dim); }
+
+/* voice-note waveform */
+.ph-wave { display: flex; align-items: center; gap: 2px; height: 22px; flex: 1; }
+.ph-wave i { display: block; width: 2px; border-radius: 1px; background: var(--ph-on-accent); opacity: .8; }
+
+.ph-card {
+  padding: 13px; border-radius: 13px; margin-bottom: 9px;
+  background: var(--ph-surface); border: 1px solid var(--ph-line);
+}
+.ph-card--accent {
+  background: linear-gradient(140deg, var(--ph-accent-dim), transparent);
+  border-color: var(--ph-accent-dim);
+}
+.ph-card h4 {
+  font-size: 12px; color: var(--ph-text); margin: 0 0 4px;
+  font-weight: 600; font-family: var(--font-body);
+}
+.ph-card p { font-size: 11px; color: var(--ph-body); margin: 0; line-height: 1.5; }
+
+.ph-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 9px; border-radius: 999px;
+  font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.ph-chip--live   { background: rgba(220,38,38,.20);  color: #FF8D8D; }
+.ph-chip--live::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: #FF6B6B; animation: pulse-dot 1.8s ease-in-out infinite;
+}
+.ph-chip--ok     { background: rgba(34,197,94,.18);  color: #6EE7A0; }
+.ph-chip--soon   { background: var(--ph-accent-dim); color: var(--ph-on-accent); }
+.ph-chip--locked { background: rgba(255,255,255,.10); color: var(--ph-dim); }
+
+.ph-countdown {
+  font-family: var(--font-display); font-size: 27px; color: var(--ph-text);
+  font-weight: 500; line-height: 1; margin: 2px 0 3px;
+}
+
+.ph-check {
+  width: 74px; height: 74px; border-radius: 50%; margin: 4px auto 14px;
+  background: rgba(34,197,94,.14); border: 1px solid rgba(110,231,160,.34);
+  display: grid; place-items: center; color: #6EE7A0;
+}
+.ph-check svg { width: 30px; height: 30px; }
+
+.ph-btn {
+  display: block; width: 100%; text-align: center;
+  padding: 11px; border-radius: 11px; border: 0;
+  background: var(--ph-accent); color: var(--ph-accent-ink);
+  font-family: var(--font-body); font-size: 12px; font-weight: 600;
+  cursor: default; margin-top: 4px;
+}
+.ph-btn--quiet {
+  background: transparent; color: var(--ph-dim);
+  border: 1px solid var(--ph-line);
+}
+
+/* church-app specifics */
+.ph-crest {
+  display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
+}
+.ph-crest img { width: 30px; height: 30px; flex: none; }
+.ph-crest span { line-height: 1.15; }
+.ph-crest strong {
+  display: block; font-family: var(--font-display);
+  font-size: 12px; color: var(--ph-text); font-weight: 600;
+}
+.ph-crest small {
+  font-size: 8.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ph-dim);
+}
+
+.ph-hero {
+  border-radius: 15px; padding: 15px; margin-bottom: 11px;
+  background: linear-gradient(150deg, var(--ph-accent-dim), transparent 78%);
+  border: 1px solid var(--ph-accent-dim);
+}
+
+.ph-amounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-bottom: 11px; }
+.ph-amount {
+  padding: 11px 4px; border-radius: 11px; text-align: center;
+  background: var(--ph-surface); border: 1px solid var(--ph-line);
+  font-size: 13px; font-weight: 600; color: var(--ph-text);
+}
+.ph-amount.is-on {
+  background: var(--ph-accent); color: var(--ph-accent-ink);
+  border-color: var(--ph-accent);
+}
+
+.ph-input {
+  padding: 11px 12px; border-radius: 11px; margin-bottom: 9px;
+  background: rgba(0,0,0,.25); border: 1px solid var(--ph-line);
+  font-size: 11.5px; color: var(--ph-body); line-height: 1.5;
+}
+.ph-input em { font-style: normal; color: var(--ph-dim); }
+.ph-caret {
+  display: inline-block; width: 1.5px; height: 12px; margin-left: 1px;
+  background: var(--ph-accent); vertical-align: -2px;
+  animation: ph-blink 1.1s step-end infinite;
+}
+@keyframes ph-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* --- bottom tab bar (the interactive part) --- */
+.phone-tabs {
+  flex: none; display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; padding: 8px 6px 14px;
+  border-top: 1px solid var(--ph-line);
+  background: rgba(255,255,255,.03);
+}
+.phone-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 6px 2px; border: 0; background: transparent;
+  color: var(--ph-dim); cursor: pointer; border-radius: 9px;
+  font-family: var(--font-body); font-size: 8.5px; font-weight: 600;
+  letter-spacing: .03em;
+  transition: color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+.phone-tab svg { width: 17px; height: 17px; }
+.phone-tab:hover { color: var(--ph-body); background: rgba(255,255,255,.05); }
+/* A neutral lift, not an accent wash - gold at low alpha over navy goes olive */
+.phone-tab[aria-selected="true"] {
+  color: var(--ph-text);
+  background: rgba(255,255,255,.10);
+  box-shadow: inset 0 0 0 1px var(--ph-line);
+}
+.phone-tab[aria-selected="true"] svg { color: var(--ph-on-accent); }
+.phone-tab:focus-visible { outline: 2px solid var(--ph-accent); outline-offset: 1px; }
+
+.phone-caption {
+  margin-top: var(--space-4); text-align: center;
+  font-size: .82rem; color: var(--ph-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-screen { transition: none; }
+  .ph-caret, .ph-chip--live::before { animation: none; }
+}

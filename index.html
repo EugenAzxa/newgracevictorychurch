@@ -23,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/app-demo.css">
 
 <script type="application/ld+json">
 {
@@ -309,35 +310,245 @@
     </div>
   </section>
 
-  <!-- ========================== REMEMBER ========================== -->
-  <section class="section section--navy" data-home-remember>
+  <!-- ========================== CHURCH APP ======================== -->
+  <section class="section section--navy" data-home-app>
     <div class="wrap">
       <div class="split">
+
         <div class="reveal">
-          <p class="eyebrow">Remembering our own</p>
-          <h2>No one in this church should be forgotten</h2>
+          <p class="eyebrow">The New Grace Victory app</p>
+          <h2>The church, in your pocket</h2>
           <p class="lede mt-4">
-            A church shows up in the first two weeks. Then the cards stop, and the family is
-            left holding it all. What goes missing first is never the big things &mdash; it is
-            the sound of a voice, the blessing said over the food every Sunday for thirty years.
+            One app for the whole of it. Your phone buzzes the moment the Sunday stream
+            goes live. Every message we have ever preached, ready to play on the drive to
+            work. A prayer request that reaches the pastor without you having to catch
+            anyone after the service.
           </p>
-          <p class="mt-4">
-            So we have partnered with Saylavy to give our families somewhere permanent to keep
-            it: memory pages, letters saved for a day that has not come yet, and funeral wishes
-            written down while there is no rush.
+          <p class="mt-4" style="color:var(--on-navy-dim)">
+            Tap along the bottom of the phone to look around it.
           </p>
-          <div class="btn-row mt-5">
-            <a class="btn btn--gold" href="remember.html">See how it works</a>
-            <a class="btn btn--ghost" href="contact.html">Talk to us first</a>
+
+          <div class="grid mt-5" style="gap:var(--space-4) var(--space-4);grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+            <div>
+              <h4 style="color:var(--gold)">Never miss a service</h4>
+              <p style="color:var(--on-navy-dim);font-size:.94rem">
+                A notification when we go live &mdash; Sundays, and midweek too.
+              </p>
+            </div>
+            <div>
+              <h4 style="color:var(--gold)">Prayer, straight through</h4>
+              <p style="color:var(--on-navy-dim);font-size:.94rem">
+                Send a request any hour of the night. It stays between you and the pastor.
+              </p>
+            </div>
+            <div>
+              <h4 style="color:var(--gold)">The whole archive</h4>
+              <p style="color:var(--on-navy-dim);font-size:.94rem">
+                Every message, listenable offline, so a long commute is not wasted.
+              </p>
+            </div>
+            <div>
+              <h4 style="color:var(--gold)">Give in two taps</h4>
+              <p style="color:var(--on-navy-dim);font-size:.94rem">
+                Set it once. Never hunt for your wallet during the offering again.
+              </p>
+            </div>
           </div>
+
+          <div class="btn-row mt-5">
+            <a class="btn btn--gold" href="contact.html">Tell us what you want in it</a>
+            <a class="btn btn--ghost" href="sermons.html">Watch online meanwhile</a>
+          </div>
+
+          <p class="form-note mt-4" style="color:var(--on-navy-dim)">
+            The app is still being built &mdash; there is nothing to download just yet.
+            This is a working preview of where it is heading.
+          </p>
         </div>
 
-        <div class="reveal" data-delay="1">
-          <blockquote class="pullquote">
-            The memory of the righteous is a blessing.
-          </blockquote>
-          <p class="form-note" style="color:var(--on-navy-dim)">Proverbs 10:7</p>
+        <div class="phone-stage reveal" data-delay="1">
+          <div class="phone" data-phone>
+
+            <div class="phone-status">
+              <span>9:41</span>
+              <span style="display:flex;align-items:center;gap:6px">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span class="phone-battery" aria-hidden="true"></span>
+              </span>
+            </div>
+
+            <div class="phone-screens">
+
+              <!-- 1. Today -->
+              <div class="phone-screen is-active" id="app-today" role="tabpanel" aria-labelledby="apptab-today">
+                <div class="ph-crest">
+                  <img src="assets/logo.png" alt="" width="30" height="30">
+                  <span>
+                    <strong>New Grace Victory</strong>
+                    <small>North York</small>
+                  </span>
+                </div>
+
+                <div class="ph-hero">
+                  <span class="ph-chip ph-chip--soon">This Sunday</span>
+                  <p class="ph-countdown">10:00 AM</p>
+                  <p class="ph-body" style="margin:0">
+                    Sunday Service &middot; in the room and on the stream.
+                  </p>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8.5 3v4M15.5 3v4"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Add to my calendar</strong><span>Reminder 30 minutes before</span></span>
+                </div>
+
+                <div class="ph-card">
+                  <h4>Verse for today</h4>
+                  <p>&ldquo;Where sin increased, grace abounded all the more.&rdquo; &mdash; Romans 5:20</p>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>465 Norfinch Dr, Unit 2</strong><span>Tap for directions</span></span>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.4 2"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Midweek gatherings</strong><span>Wednesdays &amp; Fridays</span></span>
+                </div>
+              </div>
+
+              <!-- 2. Watch -->
+              <div class="phone-screen" id="app-watch" role="tabpanel" aria-labelledby="apptab-watch" aria-hidden="true">
+                <p class="ph-eyebrow">Watch</p>
+
+                <div class="ph-hero">
+                  <span class="ph-chip ph-chip--live">Live now</span>
+                  <h3 class="ph-title" style="margin-top:9px">Sunday Service</h3>
+                  <p class="ph-sub" style="margin:0">Started 12 minutes ago</p>
+                </div>
+
+                <span class="ph-btn">Join the stream</span>
+
+                <p class="ph-eyebrow" style="margin-top:16px">Recent messages</p>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.86l11.14-6.86a1 1 0 0 0 0-1.72L9.52 4.28A1 1 0 0 0 8 5.14Z"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Renewal of the Heart</strong><span>Pastor Nnenna Ogbonna</span></span>
+                  <span class="ph-row-end">48:20</span>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.52.86l11.14-6.86a1 1 0 0 0 0-1.72L9.52 4.28A1 1 0 0 0 8 5.14Z"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Powers Against Destiny Killers</strong><span>Friday service</span></span>
+                  <span class="ph-row-end">1h 04</span>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M8 11l4 3.5 4-3.5"/><path d="M4.5 17v2.5h15V17"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Download for offline</strong><span>Listen on the drive to work</span></span>
+                </div>
+              </div>
+
+              <!-- 3. Pray -->
+              <div class="phone-screen" id="app-pray" role="tabpanel" aria-labelledby="apptab-pray" aria-hidden="true">
+                <p class="ph-eyebrow">Prayer</p>
+                <h3 class="ph-title">What can we pray for?</h3>
+                <p class="ph-sub">It goes to the pastor, and no further.</p>
+
+                <div class="ph-input">
+                  Please pray for my mother&rsquo;s results on Thursday<span class="ph-caret" aria-hidden="true"></span>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Keep this private</strong><span>Only Pastor Nnenna will see it</span></span>
+                </div>
+
+                <span class="ph-btn">Send to the pastor</span>
+                <span class="ph-btn ph-btn--quiet" style="margin-top:8px">Share with the prayer team</span>
+
+                <div class="ph-card mt-4" style="margin-top:14px">
+                  <h4>You are being prayed for</h4>
+                  <p>Three requests answered this month. We will follow up on this one.</p>
+                </div>
+              </div>
+
+              <!-- 4. Give -->
+              <div class="phone-screen" id="app-give" role="tabpanel" aria-labelledby="apptab-give" aria-hidden="true">
+                <p class="ph-eyebrow">Giving</p>
+                <h3 class="ph-title">Give in two taps</h3>
+                <p class="ph-sub">Set it once, and it stays set.</p>
+
+                <div class="ph-amounts">
+                  <span class="ph-amount">$20</span>
+                  <span class="ph-amount is-on">$50</span>
+                  <span class="ph-amount">$100</span>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Card ending 4417</strong><span>Change payment method</span></span>
+                </div>
+
+                <div class="ph-row">
+                  <span class="ph-row-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20.5 8.5v-2a2 2 0 0 0-2-2h-13a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-2"/><path d="M21.5 10.5h-5a1.5 1.5 0 0 0 0 3h5z"/></svg>
+                  </span>
+                  <span class="ph-row-text"><strong>Repeat monthly</strong><span>Cancel any time, no questions</span></span>
+                </div>
+
+                <span class="ph-btn">Give $50</span>
+
+                <div class="ph-card" style="margin-top:14px">
+                  <span class="ph-chip ph-chip--ok">Receipt</span>
+                  <h4 style="margin-top:8px">Your 2026 giving</h4>
+                  <p>A summary of everything you gave, emailed to you each January.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="phone-tabs" role="tablist" aria-label="Church app screens">
+              <button class="phone-tab" type="button" role="tab" id="apptab-today" aria-controls="app-today" aria-selected="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.7V20h13V9.7"/></svg>
+                Today
+              </button>
+              <button class="phone-tab" type="button" role="tab" id="apptab-watch" aria-controls="app-watch" aria-selected="false" tabindex="-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M10 9.6v4.8l4.2-2.4z" fill="currentColor" stroke="none"/></svg>
+                Watch
+              </button>
+              <button class="phone-tab" type="button" role="tab" id="apptab-pray" aria-controls="app-pray" aria-selected="false" tabindex="-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7.4-4.6-7.4-10.2A4.6 4.6 0 0 1 12 7.7a4.6 4.6 0 0 1 7.4 3.1C19.4 16.4 12 21 12 21Z"/></svg>
+                Pray
+              </button>
+              <button class="phone-tab" type="button" role="tab" id="apptab-give" aria-controls="app-give" aria-selected="false" tabindex="-1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h16V19a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 19z"/><path d="M3 6.2h18v3.3H3zM12 6.2v14.3"/><path d="M12 6.2S10.6 3 8.7 3a2.1 2.1 0 0 0 0 4.2M12 6.2S13.4 3 15.3 3a2.1 2.1 0 0 1 0 4.2"/></svg>
+                Give
+              </button>
+            </div>
+
+          </div>
+
+          <p class="phone-caption">A preview of the New Grace Victory Church app.</p>
         </div>
+
       </div>
     </div>
   </section>
@@ -480,5 +691,6 @@
 <script src="js/config.js"></script>
 <script src="js/site.js" defer></script>
 <script src="js/sermons.js" defer></script>
+<script src="js/phone-demo.js" defer></script>
 </body>
 </html>
