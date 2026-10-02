@@ -87,12 +87,38 @@ how Vercel is configured here.
 
 ## Deploying
 
-```bash
-npx vercel deploy --prod --yes
+**`git push origin main` deploys.** The Vercel project is connected to the GitHub repo
+and builds on every push to `main`. That is the reliable path - use it.
+
+The last two production deploys both went out this way, including one where the CLI
+command errored out and the change still shipped.
+
+### ⚠️ The Vercel CLI in this folder is in a bad state
+
+Do not run `vercel link` or `vercel deploy` here until it is sorted out. During the last
+session:
+
+- `npx vercel link --yes` **created a second, empty project** rather than linking to the
+  live one. The CLI's active scope had changed to a team called `finally-peace-projects`,
+  while the real project lives under `eugenazxas-projects`.
+- `vercel switch` then failed, and `vercel whoami` started returning `Not authorized`.
+
+`.vercel/project.json` has been hand-restored to the correct target:
+
+```json
+{"projectId":"prj_BAjrkRp3QvURo3tzZAWgLrnIWSh5","orgId":"team_G4uuovdRAE202pdQrLv5JVpD","projectName":"newgracevictorychurch"}
 ```
 
-Already linked to the `newgracevictorychurch` project under `eugenazxas-projects`.
-Vercel account is `eugenazxa`. Pushing to `main` does not auto-deploy - run the command.
+**Two bits of cleanup for a human, in the Vercel dashboard:**
+
+1. Delete the stray empty `newgracevictorychurch` project under **finally-peace-projects**
+   (no deployments, no domain, created by accident). Make sure you are deleting the one
+   with no domain attached - the real project is under `eugenazxas-projects` and serves
+   `newgracevictorychurch.vercel.app`.
+2. Run `npx vercel login` and confirm the scope is `eugenazxas-projects` before using the
+   CLI again.
+
+None of this affects the live site, which is healthy and serving the current build.
 
 ## Refreshing the sermon archive
 
@@ -141,6 +167,15 @@ editor tool, not `cat > file << 'EOF'`.
 
 **`cd "$TMPDIR"` silently does nothing** when `TMPDIR` is unset - it stays in the current
 directory. An early scrape wrote a dozen files into the wrong project folder this way.
+
+**`vercel link --yes` will happily create a new project** instead of linking to an
+existing one, if the CLI's active scope points at a different team. It does not warn.
+Check `vercel teams ls` and the resulting `projectId` before trusting it - see the
+deploy section above for the mess this caused.
+
+**Markdown and scripts in the repo get served publicly by default.** `/HANDOFF.md` was
+fetchable on production until `.vercelignore` was added. Anything not meant for visitors
+needs to be listed there.
 
 ---
 
