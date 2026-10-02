@@ -1,0 +1,13 @@
+# Kept out of the deployment - these belong in the repo, not on the church's
+# public site. HANDOFF.md in particular lists which contact details are still
+# placeholders, which is not something to serve to visitors.
+
+HANDOFF.md
+README.md
+
+# Maintenance scripts. Nothing on the site loads them, and og-image.html is
+# only ever opened locally to regenerate assets/og-image.jpg.
+tools/
+
+# Build input for data/sermons.json, not read by the browser.
+data/overrides.json
